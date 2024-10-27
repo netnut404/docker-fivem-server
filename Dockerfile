@@ -19,16 +19,16 @@ FROM alpine:latest
 LABEL maintainer="github.com/altshiftzero"
 
 ENV TXADMIN_VERSION="7.3.2" \
-    FIVEM_ARTIFACT="5265-dae83f643b2ea1e2488e1a57b3b1d53988a2128d"
+    FIVEM_ARTIFACT="10488-7fb0285f8c175fceb3603268d97151655e5992af"
 
 EXPOSE 40120
 EXPOSE 30120
 EXPOSE 30110
 
 RUN apk add --no-cache libgcc libstdc++ curl ca-certificates npm unzip wget git
-RUN mkdir /opt/FiveM
-RUN curl https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/10488-7fb0285f8c175fceb3603268d97151655e5992af/fx.tar.xz | tar xJ -C /opt/FiveM
-RUN git clone https://github.com/citizenfx/cfx-server-data.git /opt/FiveM/server-data
+RUN mkdir /opt/fivem
+RUN curl https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/10488-7fb0285f8c175fceb3603268d97151655e5992af/fx.tar.xz | tar xJ -C /opt/fivem
+RUN git clone https://github.com/citizenfx/cfx-server-data.git /opt/fivem/server-data
 
 ENTRYPOINT ["sh", "/opt/FiveM/run.sh"]
 
